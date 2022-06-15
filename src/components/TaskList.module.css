@@ -1,0 +1,36 @@
+.taskListContainer {
+    width: 100%;
+}
+
+.taskNumber {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2.4rem;
+}
+
+.taskNumber .createdTask,
+.taskNumber .completed {
+    display: flex;
+    gap: .8rem;
+
+}
+
+.taskNumber .createdTask p {
+    font-weight: 700;
+    font-size: 1.4rem;
+    color: var(--blue-200);
+}
+.taskNumber .completed p {
+    font-weight: 700;
+    font-size: 1.4rem;
+    color: var(--purple-600);
+}
+
+.taskNumber .createdTask span,
+.taskNumber .completed span {
+    padding-inline: .8rem;
+    border-radius: 4rem;
+    background: var(--gray-400);
+    color: var(--gray-200);
+}

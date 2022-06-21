@@ -1,19 +1,33 @@
 import style from './TaskContainer.module.css'
-import { Trash  } from 'phosphor-react'
+import { Cake, Trash  } from 'phosphor-react'
+import { ChangeEvent, HTMLInputTypeAttribute, useState } from 'react';
+// import { newTask } from './AddTask'
 
-import { taskList } from '../assets/mocks/Tasks'
+// import { taskList } from '../assets/mocks/Tasks'
 
-export function TaskContainer() {
+interface ITaskContainer {
+    content: string;
+    checked: boolean;
+}
+
+export function TaskContainer({ content, checked}: ITaskContainer) {
+    
+    const [isChecked, setIsChecked] = useState(Boolean)
+    
+    function eventCheck(event: ChangeEvent<HTMLInputElement>) {
+        setIsChecked(event.target.checked)
+    }
 
     return (
         <>
            <div className={ style.task}>
-                <input type="checkbox" name=""/>
+                <input onChange={eventCheck} checked={checked}  type="checkbox" name=""/>
                 <p>
-                    {taskList[0].content}
+                    {content}
                 </p>
                 <Trash size={16} alt='Lixeira' className={style.trash}/>
             </div> 
         </>
     )
 }
+

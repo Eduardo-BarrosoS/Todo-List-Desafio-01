@@ -1,11 +1,20 @@
 import style from './TaskList.module.css'
-import { Trash, ClipboardText  } from 'phosphor-react'
+
 import { taskList } from '../assets/mocks/Tasks'
 import { TaskContainerEmpty } from './TaskContainerEmpty'
 import { TaskContainer } from './TaskContainer'
 
 
 export function TaskList() {
+
+    const taskContent = taskList.map(task => {
+        return <TaskContainer key={task.id+1} checked={task.checked} content={task.content} /> 
+    })
+
+    const taskCompleted = taskList.filter(completed => {
+        return completed.checked === true
+    })
+    const completedTaskNumber = taskCompleted.length
 
     const hasTask = taskList.length <= 0
     return (
@@ -18,13 +27,12 @@ export function TaskList() {
                     </div>
                     <div className={style.completed}>
                         <p>Concluídas</p>
-                        <span>{1} de {taskList.length}</span>
+                        <span>{completedTaskNumber} de {taskList.length}</span>
                     </div>
                 </div>
                 <div className={style.tasksContainer}>
-                    { hasTask ? <TaskContainerEmpty /> : <TaskContainer /> }
+                    { hasTask ? <TaskContainerEmpty /> : taskContent}
                 </div>
-
             </div>
         </>
     )

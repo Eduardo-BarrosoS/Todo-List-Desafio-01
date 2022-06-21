@@ -1,23 +1,26 @@
 .add {
     width: 100%;
+    height: 6rem;
     display: flex;
     gap: .8rem;
-    margin-top: calc(0px - 2rem - 7px);
+    margin-top: calc(0px - 2.5rem - 7px);
     margin-bottom: 6.4rem;
 }
 
-.add input {
+.add textarea {
     width: 100%;
     padding: 1.6rem;
     background: var(--gray-500);
     border: none;
+    resize: none;
     border-radius: 8px;
     font-weight: 400;
     font-size: 1.6rem;
     color: var(--gray-100);
+    overflow: auto;
 }
 
-.add input::placeholder {
+.add textarea::placeholder {
     color: var(--gray-300);
 }
 
@@ -29,9 +32,16 @@
     gap: .8rem;
     background: var(--blue-200);
     border-radius: 8px;
+    outline: none;
+    cursor: pointer;
 
     font-weight: 700;
     font-size: 1.4rem;
     color: var(--gray-100);
 
+}
+
+.add button:disabled {
+    opacity: .8;
+    cursor: not-allowed;
 }
